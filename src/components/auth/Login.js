@@ -6,7 +6,7 @@ function Login() {
   const reloadWindow=()=>{
     setTimeout(()=>{
       window.location.reload(false)
-    },500)
+    },1000)
   }
   const [details, setDetails] = useState({
     email: "",
