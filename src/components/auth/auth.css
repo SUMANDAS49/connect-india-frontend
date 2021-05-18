@@ -1,0 +1,143 @@
+.sign-up-body {
+  margin: 0px;
+    background-color: #092349;
+    width: 98.7vw;
+    height: 607px;
+    position: absolute;
+    top: 109px;
+}
+.sign-up-body .title {
+  color: white;
+  font-size: 35px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+.sign-up-body .sign-up-container {
+  height: 312px;
+  background-color: white;
+  width: 382px;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+}
+.ip1 {
+  height: 32px;
+  width: 313px;
+  border: solid 2px black;
+  border-radius: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+.ip2 {
+  height: 32px;
+  width: 313px;
+  border: solid 2px black;
+  border-radius: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+.ip3{
+    height: 45px;
+    width: 90px;
+    border: solid 2px black;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  .sign-up-error{
+    color: red;
+    font-size: 26px;
+    text-align: center;
+    background: yellow;
+    width: 269px;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .sign-up-success{
+    background-color: yellow;
+    color: green;
+    font-size: 24px;
+    width: 413px;
+    margin: auto;
+  }
+@media (max-width: 400px) {
+  .sign-up-body {
+    margin: 0px;
+    background-color: #092349;
+    width: 100vw;
+    height: 607px;
+    position: relative;
+    top: -51px;
+  }
+  .sign-up-body .title {
+    color: white;
+    font-size: 35px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .sign-up-body .sign-up-container {
+    height: 312px;
+    background-color: white;
+    width: 330px;
+    border-radius: 7px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 41px;
+  }
+  .ip1 {
+    height: 32px;
+    width: 313px;
+    border: solid 2px black;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+  }
+  .ip2 {
+    height: 32px;
+    width: 313px;
+    border: solid 2px black;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+  }
+  .ip3{
+    height: 45px;
+    width: 90px;
+    border: solid 2px black;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  .sign-up-error{
+    color: red;
+    font-size: 26px;
+    text-align: center;
+    background: yellow;
+    width: 269px;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .sign-up-success{
+    background-color: yellow;
+    color: green;
+    font-size: 21px;
+    width: 301px;
+    margin: auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,40 @@
+.display-posts-body {
+  background-color: #092349;
+  height: auto;
+  width: 509px;
+  margin: auto;
+  border-radius: 6px;
+}
+.loader{
+  width: 70px;
+    margin: auto;
+
+}
+.loader .actual{
+  height: 80px;
+    width: 80px;
+    margin: auto;
+    color: blue;
+}
+@media (max-width:410px)
+{
+  .display-posts-body {
+    background-color: #ffffff;
+    height: auto;
+    width: auto;
+    margin: auto;
+    border-radius: 6px;
+    padding: 5px;
+  }
+  .loader{
+    width: 70px;
+      margin: auto;
+  
+  }
+  .loader .actual{
+    height: 80px;
+      width: 80px;
+      margin: auto;
+      color: blue;
+  }
+}

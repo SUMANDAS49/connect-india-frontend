@@ -1,0 +1,72 @@
+.post-card {
+  background-color: #515080;
+  height: auto;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 414px;
+  position: relative;
+  left: -2px;
+  padding: 26px;
+  margin-top: 10px;
+  color: white;
+}
+
+.post-card-author {
+}
+.post-card-author .name {
+  font-size: 33px;
+  font-weight: bold;
+}
+.post-card-author .email {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.post-card-image {
+  margin: auto;
+}
+.post-card-image .main-image {
+  border-radius: 11px;
+}
+.post-card .content {
+  font-size: 16px;
+  font-family: system-ui;
+}
+
+@media (max-width: 410px) {
+  .post-card {
+    background-color: #18254a;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80vw;
+    position: relative;
+    left: -2px;
+    padding: 26px;
+    margin-top: 10px;
+    color: white;
+  }
+
+  .post-card-author {
+      /* ug */
+  }
+  .post-card-author .name {
+    font-size: 33px;
+    font-weight: bold;
+  }
+  .post-card-author .email {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .post-card-image {
+    margin: auto;
+  }
+  .post-card-image .main-image {
+    border-radius: 11px;
+  }
+  .post-card .content {
+    font-size: 16px;
+    font-family: system-ui;
+  }
+}
