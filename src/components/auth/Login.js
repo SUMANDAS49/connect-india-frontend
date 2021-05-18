@@ -3,11 +3,7 @@ import { Link ,Redirect} from "react-router-dom";
 import "./auth.css";
 import { signUp,LogIn } from "./Helper";
 function Login() {
-  const reloadWindow=()=>{
-    setTimeout(()=>{
-      window.location.reload(false)
-    },1000)
-  }
+  
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -81,7 +77,7 @@ function Login() {
         <button
           onClick={() => {
             done()
-            reloadWindow()
+            
           }}
           className="ip3"
         >
