@@ -32,7 +32,55 @@
   font-size: 16px;
   font-family: system-ui;
 }
-
+.like-box{
+display: flex;
+}
+.like-box .like{
+flex: auto;
+}
+.like-box .like .main{
+  margin-left: 24px;
+}
+.like-box .love{
+  flex: auto;
+}
+.like-box .love .main{
+  
+}
+.like-box .dislike{
+  flex: auto;
+}
+.like-box .dislike .main{
+  
+}
+.like-box .haha{
+  flex: auto;
+}
+.like-box .haha .main{
+  
+}
+.post-card-author .more .main{
+  position: absolute;
+  right: 20px;
+}
+.show-more-form{
+  height: 48px;
+  background-color: white;
+  color: black;
+  width: auto;
+  padding: 14px;
+  border-radius: 10px;
+}
+.show-more-form .delete{
+  margin: auto;
+  width: 84px;
+  font-size: 21px;
+}
+.show-more-form .about{
+  margin: auto;
+  width: 84px;
+  font-size: 21px;
+}
 @media (max-width: 410px) {
   .post-card {
     background-color: #18254a;
@@ -70,3 +118,4 @@
     font-family: system-ui;
   }
 }
+

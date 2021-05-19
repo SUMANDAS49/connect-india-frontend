@@ -4,6 +4,7 @@ import {isAuthenticated} from "../auth/Helper"
 import "./post.css"
 import { uploadPost } from "./PostHelper";
 function CreatePost() {
+
     const data=new FormData()
     const [values,setvalues]=useState({
         content:"",
@@ -17,6 +18,8 @@ function CreatePost() {
         const token=isAuthenticated().token;
         uploadPost(userId,token,data).then((r)=>{
             console.log(r)
+            setvalues({image:"",content:""})
+            window.location.reload()
         }).catch((err)=>{
             console.log(err)
         })
@@ -30,6 +33,7 @@ function CreatePost() {
             </div>
         )
     }
+    
   return (
     <div>
         {
