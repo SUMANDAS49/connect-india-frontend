@@ -3,9 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 import "./cstyle.css";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
+import TelegramIcon from '@material-ui/icons/Telegram';
+import HomeIcon from "@material-ui/icons/Home";
 import Bounce from "react-reveal/Bounce";
 import Fade from "react-reveal/Fade";
 import { isAuthenticated, LogIn } from "../auth/Helper";
@@ -15,33 +16,41 @@ function Nav() {
   const [changed, setChanged] = useState(false);
 
   const logout = () => {
-    if(typeof window !==undefined)
-    {
-      localStorage.removeItem("auth")
-      
+    if (typeof window !== undefined) {
+      localStorage.removeItem("auth");
     }
   };
-  const displayUserName=()=>{
-    if(isAuthenticated().user!==undefined)
-    {
-      return <div className="displayName"><AccountCircleIcon className="userIcon" /> {isAuthenticated().user.name}</div>
+  const displayUserName = () => {
+    if (isAuthenticated().user !== undefined) {
+      return (
+        <div className="displayName">
+          <AccountCircleIcon className="userIcon" />{" "}
+          {isAuthenticated().user.name}
+        </div>
+      );
+    } else {
+      return (
+        <Link to="auth/login">
+          <div className="displayName">.</div>
+        </Link>
+      );
     }
-    else
-    {
-      return <Link to="auth/login"><div className="displayName">.</div></Link>
-    }
-  }
+  };
   const tgl = () => {
     if (hide === false) {
       return <CloseIcon />;
     } else {
-      return <MenuIcon />;
+      return (
+        <>
+          <MenuIcon />
+        </>
+      );
     }
   };
   useEffect(() => {
     setHide(true);
   }, []);
-  
+
   return (
     <div className="nav">
       <div className="head">
@@ -69,7 +78,9 @@ function Nav() {
               to="/"
             >
               {" "}
-              <li><HomeIcon /></li>
+              <li>
+                <HomeIcon />
+              </li>
             </Link>
             {!isAuthenticated() && (
               <Link
@@ -97,13 +108,7 @@ function Nav() {
                 <li>Log in</li>
               </Link>
             )}
-            {
-              isAuthenticated() && <Link style={{
-                paddingLeft: 13,
-                textDecoration: "none",
-                color: "white",
-              }}><li><NotificationsNoneOutlinedIcon  /></li></Link>
-            }
+
             {isAuthenticated() && (
               <Link
                 style={{
@@ -113,12 +118,48 @@ function Nav() {
                 }}
               >
                 {" "}
-                <li onClick={() => {logout()}}>logout</li>
+                <li
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  logout
+                </li>
               </Link>
             )}
           </ul>
         </div>
       </Fade>
+      <div className="outside">
+        <ul>
+        {isAuthenticated() && (
+          <Link
+            style={{
+              paddingLeft: 13,
+              textDecoration: "none",
+              color: "white",
+            }}
+          >
+            <li>
+              <NotificationsNoneOutlinedIcon  className="main" />
+            </li>
+          </Link>
+        )}
+        {isAuthenticated() && (
+          <Link
+            style={{
+              paddingLeft: 13,
+              textDecoration: "none",
+              color: "white",
+            }}
+          >
+            <li>
+              <TelegramIcon  className="main" />
+            </li>
+          </Link>
+        )}
+        </ul>
+      </div>
     </div>
   );
 }

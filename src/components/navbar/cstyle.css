@@ -37,6 +37,29 @@
   font-size: 25px;
   color: white;
 }
+.outside{
+  width: 200px;
+  background-color: #092349;
+  height: 48px;
+  position: absolute;
+  top: 61px;
+  right: 20px;
+
+}
+.outside ul{
+  width: auto;
+    position: relative;
+    list-style: none;
+    background-color: #092349;
+    display: flex;
+    margin: auto;
+}
+.outside ul .main{
+  font-size: 35px;
+}
+.outside ul li{
+  padding-left: 25px;
+}
 @media (max-width: 600px) {
   .nav .head .title {
     font-size: 36px;
@@ -76,9 +99,33 @@
   }
   .displayName {
     position: absolute;
-    right: 16px;
-    top: 14px;
-    font-size: 19px;
+    right: 10px;
+    top: 28px;
+    font-size: 16px;
     color: white;
+  }
+  .outside{
+    width: 173px;
+    background-color: #092349;
+    height: 32px;
+    position: absolute;
+    top: 61px;
+    right: 22px;
+  
+  }
+  .outside ul{
+    width: auto;
+    position: relative;
+    right: 0px;
+    list-style: none;
+    background-color: #092349;
+    display: flex;
+    margin: auto;
+  }
+  .outside ul .main{
+    font-size: 28px;
+  }
+  .outside ul li{
+    padding-left: 3px;
   }
 }
