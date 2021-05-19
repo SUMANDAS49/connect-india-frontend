@@ -8,7 +8,7 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {isAuthenticated} from "../auth/Helper"
 import { deletePost } from "./Helpers/PostDeleteHelper";
-function PostCard({ id, content, name, likes,email,idr }) {
+function PostCard({ id, content, name, likes,email,idr,authorId }) {
   const [displayMore,setDisplayMore]=useState(false)
  
   const deletePostHandler=()=>{
@@ -26,7 +26,7 @@ function PostCard({ id, content, name, likes,email,idr }) {
   }
   const deleteForm=()=>{
     return <div className="show-more-form">
-      <div className="delete" onClick={()=>deletePostHandler()}>delete</div>
+      {isAuthenticated().user._id===authorId && <div className="delete" onClick={()=>deletePostHandler()}>delete</div>}
       <div className="about">about</div>
     </div>
   }

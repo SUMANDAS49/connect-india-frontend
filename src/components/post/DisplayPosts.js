@@ -52,7 +52,7 @@ return <Redirect to="/auth/login" />
         {
             
             data.posts.map((d) => {
-                return <PostCard name={d.author} email={d.email} content={d.content} id={d} idr={d._id} />;
+                return <PostCard name={d.author} email={d.email} content={d.content} id={d} idr={d._id} authorId={d.authorId} />;
               })
         }
         </div>
