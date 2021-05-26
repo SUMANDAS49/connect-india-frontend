@@ -2,7 +2,10 @@ import React,{useState} from "react";
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import {isAuthenticated} from "../auth/Helper"
 import "./post.css"
+
+
 import { uploadPost } from "./PostHelper";
+import { compressImage } from "./Helpers/Compressor";
 function CreatePost() {
 
     const data=new FormData()
@@ -11,7 +14,9 @@ function CreatePost() {
         image:""
     })
     const {image,content}=values
-    const printValues=()=>{
+    const printValues= ()=>{
+       
+        
         data.append("content",content)
         data.append("image",image)
         const userId=isAuthenticated().user._id;

@@ -1,0 +1,164 @@
+.story-base {
+  height: auto;
+    width: 514px;
+    display: flex;
+    background: #ffffff;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 9px;
+  
+}
+.small-preview {
+  display: flex;
+    width: 468px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+}
+.small-preview .small-card {
+  height: 158px;
+  width: 92px;
+  background-color: #092349;
+  margin: 5px;
+  border-radius: 8px;
+  padding: 6px;
+}
+.small-preview .small-card .heading .time {
+  display: none;
+}
+.small-preview .small-card .heading .author{
+    color: white;
+    font-size: 12px;
+    margin: 6px;
+}
+.small-preview .main-story {
+  height: 123px;
+  padding: 5px;
+  width: 82px;
+  background-color: white;
+}
+.small-preview .main-story .contents {
+}
+.small-preview .main-story .contents .image-background {
+  height: 124px;
+  width: 83px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 7px;
+}
+.small-preview .main-story .contents .image-background .texts {
+  color: white;
+  font-family: system-ui;
+  font-size: 14px;
+  padding: 10px;
+  text-shadow: 1px 3px 8px #000000;
+}
+.scroll-buttons{
+    display: flex;
+    flex-direction: column;
+    
+}
+.scroll-buttons .left{
+    height: 31px;
+    width: 31px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    flex: 1;
+    margin: 5px;
+}
+.scroll-buttons .mid{
+    flex: 3;
+    margin: 5px;
+}
+.scroll-buttons .right{
+    height: 31px;
+    width: 31px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    flex: 1;
+    margin: 5px;
+
+}
+@media (max-width:420px)
+{
+    .story-base {
+        height: auto;
+        width: auto;
+        display: flex;
+        
+      }
+      .small-preview {
+        display: flex;
+        width: auto;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+      }
+      .small-preview .small-card {
+        height: 140px;
+        width: 88px;
+        background-color: #092349;
+        margin: 5px;
+        border-radius: 8px;
+        padding: 6px;
+      }
+      .small-preview .small-card .heading .time {
+        display: none;
+      }
+      .small-preview .small-card .heading .author{
+          color: white;
+          font-size: 10px;
+          margin: 6px;
+      }
+      .small-preview .main-story {
+        height: 106px;
+    width: 78px;
+      }
+      .small-preview .main-story .contents {
+      }
+      .small-preview .main-story .contents .image-background {
+        height: 108px;
+        width: 78px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 7px;
+      }
+      .small-preview .main-story .contents .image-background .texts {
+        color: white;
+        font-family: system-ui;
+        font-size: 14px;
+        padding: 10px;
+        text-shadow: 1px 3px 8px #000000;
+      }
+      .scroll-buttons{
+          display: flex;
+          flex-direction: column;
+          display: none;
+          
+      }
+      .scroll-buttons .left{
+          height: 31px;
+          width: 31px;
+          background-color: black;
+          color: white;
+          border-radius: 50%;
+          flex: 1;
+          margin: 5px;
+      }
+      .scroll-buttons .mid{
+          flex: 3;
+          margin: 5px;
+      }
+      .scroll-buttons .right{
+          height: 31px;
+          width: 31px;
+          background-color: black;
+          color: white;
+          border-radius: 50%;
+          flex: 1;
+          margin: 5px;
+      
+      }
+}
