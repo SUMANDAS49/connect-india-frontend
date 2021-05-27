@@ -48,7 +48,7 @@ export const LogIn = (email, password) => {
 export const isAuthenticated = () => {
   if (typeof window !== undefined) {
     if (localStorage.getItem("auth")) {
-        console.log("form-----"+localStorage.getItem("auth"))
+        
       return JSON.parse(localStorage.getItem("auth"));
     } else {
       return false;

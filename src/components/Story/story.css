@@ -1,19 +1,68 @@
 .story-base {
   height: auto;
-    width: 514px;
-    display: flex;
-    background: #ffffff;
-    margin: auto;
-    border-radius: 10px;
-    margin-bottom: 9px;
-  
+  width: 514px;
+  display: flex;
+  background: #ffffff;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 9px;
 }
+/* story form styles----------------------  */
+.story-form-container {
+}
+.story-form {
+  height: 300px;
+  width: 512px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  background-color: #092349;
+  margin-bottom: 10px;
+}
+.story-form .cancel-icon{
+  position: absolute;
+  font-size: 34px;
+}
+.story-form .post-button{
+  height: 31px;
+    background-color: white;
+    width: 75px;
+    color: black;
+    padding: 0px;
+    font-size: 22px;
+    border-radius: 4px;
+    margin: auto;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+.form-input .form-file {
+  width: 200px;
+  margin: auto;
+}
+
+.form-input .form-text-area {
+  height: 130px;
+  width: 450px;
+  margin: auto;
+  padding: 10px;
+  font-size: 25px;
+  font-family: cursive;
+  border-radius: 10px;
+}
+
+/* story fomr style ends here  */
 .small-preview {
   display: flex;
-    width: 468px;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    flex-wrap: nowrap;
+  width: 468px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
 }
 .small-preview .small-card {
   height: 158px;
@@ -26,10 +75,10 @@
 .small-preview .small-card .heading .time {
   display: none;
 }
-.small-preview .small-card .heading .author{
-    color: white;
-    font-size: 12px;
-    margin: 6px;
+.small-preview .small-card .heading .author {
+  color: white;
+  font-size: 12px;
+  margin: 6px;
 }
 .small-preview .main-story {
   height: 123px;
@@ -53,12 +102,137 @@
   padding: 10px;
   text-shadow: 1px 3px 8px #000000;
 }
-.scroll-buttons{
+.scroll-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.scroll-buttons .left {
+  height: 31px;
+  width: 31px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  flex: 1;
+  margin: 5px;
+}
+.scroll-buttons .mid {
+  flex: 3;
+  margin: 5px;
+}
+.scroll-buttons .right {
+  height: 31px;
+  width: 31px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  flex: 1;
+  margin: 5px;
+}
+@media (max-width: 420px) {
+  .story-base {
+    height: auto;
+    width: auto;
+    display: flex;
+  }
+  .small-preview {
+    display: flex;
+    width: auto;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+  .small-preview .small-card {
+    height: 140px;
+    width: 88px;
+    background-color: #092349;
+    margin: 5px;
+    border-radius: 8px;
+    padding: 6px;
+  }
+  /* story form styles----------------------  */
+.story-form-container {
+}
+.story-form {
+  height: 297px;
+    width: 345px;
+    margin: auto;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    
+    text-align: center;
+    color: white;
+    background-color: #092349;
+    margin-bottom: 10px;
 }
-.scroll-buttons .left{
+.story-form .cancel-icon{
+  position: absolute;
+  font-size: 26px;
+}
+.story-form .post-button{
+  height: 31px;
+    background-color: white;
+    width: 75px;
+    color: black;
+    padding: 0px;
+    font-size: 22px;
+    border-radius: 4px;
+    margin: auto;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+.form-input .form-file {
+  width: 200px;
+  margin: auto;
+}
+
+.form-input .form-text-area {
+  height: 125px;
+    width: 306px;
+    margin: auto;
+    padding: 10px;
+    font-size: 19px;
+    font-family: cursive;
+    border-radius: 10px;
+}
+
+/* story fomr style ends here  */
+  .small-preview .small-card .heading .time {
+    display: none;
+  }
+  .small-preview .small-card .heading .author {
+    color: white;
+    font-size: 10px;
+    margin: 6px;
+  }
+  .small-preview .main-story {
+    height: 106px;
+    width: 78px;
+  }
+  .small-preview .main-story .contents {
+  }
+  .small-preview .main-story .contents .image-background {
+    height: 108px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 7px;
+  }
+  .small-preview .main-story .contents .image-background .texts {
+    color: white;
+    font-family: system-ui;
+    font-size: 14px;
+    padding: 10px;
+    text-shadow: 1px 3px 8px #000000;
+  }
+  .scroll-buttons {
+    display: flex;
+    flex-direction: column;
+    display: none;
+  }
+  .scroll-buttons .left {
     height: 31px;
     width: 31px;
     background-color: black;
@@ -66,12 +240,12 @@
     border-radius: 50%;
     flex: 1;
     margin: 5px;
-}
-.scroll-buttons .mid{
+  }
+  .scroll-buttons .mid {
     flex: 3;
     margin: 5px;
-}
-.scroll-buttons .right{
+  }
+  .scroll-buttons .right {
     height: 31px;
     width: 31px;
     background-color: black;
@@ -79,86 +253,5 @@
     border-radius: 50%;
     flex: 1;
     margin: 5px;
-
-}
-@media (max-width:420px)
-{
-    .story-base {
-        height: auto;
-        width: auto;
-        display: flex;
-        
-      }
-      .small-preview {
-        display: flex;
-        width: auto;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        flex-wrap: nowrap;
-      }
-      .small-preview .small-card {
-        height: 140px;
-        width: 88px;
-        background-color: #092349;
-        margin: 5px;
-        border-radius: 8px;
-        padding: 6px;
-      }
-      .small-preview .small-card .heading .time {
-        display: none;
-      }
-      .small-preview .small-card .heading .author{
-          color: white;
-          font-size: 10px;
-          margin: 6px;
-      }
-      .small-preview .main-story {
-        height: 106px;
-    width: 78px;
-      }
-      .small-preview .main-story .contents {
-      }
-      .small-preview .main-story .contents .image-background {
-        height: 108px;
-        width: 78px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 7px;
-      }
-      .small-preview .main-story .contents .image-background .texts {
-        color: white;
-        font-family: system-ui;
-        font-size: 14px;
-        padding: 10px;
-        text-shadow: 1px 3px 8px #000000;
-      }
-      .scroll-buttons{
-          display: flex;
-          flex-direction: column;
-          display: none;
-          
-      }
-      .scroll-buttons .left{
-          height: 31px;
-          width: 31px;
-          background-color: black;
-          color: white;
-          border-radius: 50%;
-          flex: 1;
-          margin: 5px;
-      }
-      .scroll-buttons .mid{
-          flex: 3;
-          margin: 5px;
-      }
-      .scroll-buttons .right{
-          height: 31px;
-          width: 31px;
-          background-color: black;
-          color: white;
-          border-radius: 50%;
-          flex: 1;
-          margin: 5px;
-      
-      }
+  }
 }

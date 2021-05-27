@@ -1,10 +1,21 @@
 .main-story{
-    background-color: green;
+    background-color: #092349;
     height: 557px;
-    margin: 0px;
-    width: 400pxpx;
+    margin: auto;
+    width: 400px;
     border-radius: 12px;
     padding: 22px;
+
+}
+.close-button{
+    height: 40px;
+    width: 90px;
+    position: absolute;
+    right: 379px;
+    color: white;
+}
+.close-button .main-close-button{
+    font-size: 40px;
 }
 .main-story .author{
     font-size: 35px;
@@ -31,6 +42,15 @@
     padding: 14px;
     margin: auto;
     margin-top: 6px;
+    }
+    .close-button{
+        color: #c53737;
+        position: absolute;
+        right: -23px;
+        color: white;
+    }
+    .close-button .main-close-button{
+        font-size: 40px;
     }
     .main-story .author{
         font-size: 35px;
