@@ -13,6 +13,7 @@ import { getAllStories } from '../StoryApiCall/GrtAllStories'
 
 function Home() {
   const [story,setStory]=useState([])
+  const [storyLoading,setStoryLoading]=useState(true)
   const resirectToLogin=()=>{
     return <Redirect to="/auth/login" />
   }
@@ -21,6 +22,7 @@ function Home() {
      getAllStories().then((r)=>{
        console.log(r)
        setStory(r)
+       setStoryLoading(false)
      })
      
    },[])
@@ -28,7 +30,7 @@ function Home() {
   // story related works ends here------------xxxxxxxxxxxxxxxx
   return (
     <Base>
-        {isAuthenticated() &&  <Story data={story} />}
+        {isAuthenticated() &&  <Story data={story} stroryLoading={storyLoading} />}
         <CreatePost />
         {isAuthenticated() && <DisplayPosts />}
         {!isAuthenticated() && resirectToLogin()}

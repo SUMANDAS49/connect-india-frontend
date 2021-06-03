@@ -7,6 +7,16 @@
   border-radius: 10px;
   margin-bottom: 9px;
 }
+/* Story loader styles */
+.loader-story{
+margin: auto;
+}
+.loader-story .loader-story-image{
+
+  height: 87px;
+  width: 87px;
+}
+/* Story loader styles */
 /* story form styles----------------------  */
 .story-form-container {
 }
@@ -129,6 +139,18 @@
   margin: 5px;
 }
 @media (max-width: 420px) {
+  /* Story loader styles */
+.loader-story{
+  margin: auto;
+  width: 200px;
+  }
+  .loader-story .loader-story-image{
+  
+    height: 45px;
+    width: 45px;
+    margin: auto;
+  }
+  /* Story loader styles */
   .story-base {
     height: auto;
     width: auto;

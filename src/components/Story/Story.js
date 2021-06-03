@@ -14,7 +14,7 @@ const rightScroll = () => {
 const leftScroll = () => {
   document.getElementById("small-preview").scrollLeft -= 70;
 };
-const Story = ({ data }) => {
+const Story = ({ data,stroryLoading }) => {
   const [showBigStory, setShowBigStory] = useState(false);
   const [singleData, setSingleData] = useState({});
   const [showStoryForm, setShowStoryForm] = useState(false);
@@ -81,7 +81,8 @@ createStory(userId,token,sdata).then((res)=>{
               </div>
             </div>
           </div>
-          {data.map((e) => {
+          {stroryLoading && <div className="loader-story"><img className="loader-story-image" src="./loader1.gif" /></div>}
+          {!stroryLoading && data.map((e) => {
             return (
               <div className="small-card">
                 <div className="heading">
