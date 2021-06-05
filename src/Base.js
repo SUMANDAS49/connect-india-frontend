@@ -1,17 +1,22 @@
 import React from 'react'
-import { PostReloadContextProvider } from './components/Contexts/PostLoaderContext'
+import { PostLoaderContextProvider } from './components/Contexts/PostLoaderContext'
+import { PostReloadContextProvider } from './components/Contexts/PostReloaderContext'
 import Nav from './components/navbar/Nav'
 
 
 function Base({ children }) {
     return (
-        <PostReloadContextProvider>
-            <div>
-                <Nav />
-                {children}
 
-            </div>
-        </PostReloadContextProvider>
+        <PostLoaderContextProvider>
+            <PostReloadContextProvider>
+                <div>
+                    <Nav />
+                    {children}
+
+                </div>
+            </PostReloadContextProvider>
+        </PostLoaderContextProvider>
+
 
     )
 }

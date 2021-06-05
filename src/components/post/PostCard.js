@@ -8,13 +8,16 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {isAuthenticated} from "../auth/Helper"
 import { deletePost } from "./Helpers/PostDeleteHelper";
-import { PostReloadContext } from "../Contexts/PostLoaderContext";
+import { PostReloadContext } from "../Contexts/PostReloaderContext";
+import { PostLoaderContext } from "../Contexts/PostLoaderContext";
+
 function PostCard({ id, content, name, likes,email,idr,authorId }) {
   const [displayMore,setDisplayMore]=useState(false)
 
 const [postReload,setPostReload]=useContext(PostReloadContext)
+const [postLoad,setPostLoad]=useContext(PostLoaderContext)
   const deletePostHandler=()=>{
-    
+    setPostLoad(true)
     const userId=isAuthenticated().user._id
     const postId=idr;
     const token=isAuthenticated().token

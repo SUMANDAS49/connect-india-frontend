@@ -8,9 +8,12 @@ import "./post.css"
 import { uploadPost } from "./PostHelper";
 import { compressImage } from "./Helpers/Compressor";
 
-import { PostReloadContext } from "../Contexts/PostLoaderContext";
+import { PostReloadContext } from "../Contexts/PostReloaderContext";
+import { PostLoaderContext } from "../Contexts/PostLoaderContext";
+
 function CreatePost() {
   const [postReload,setPostReload]=useContext(PostReloadContext)
+  const [postLoad,setPostLoad]=useContext(PostLoaderContext)
 
     const data=new FormData()
     const [values,setvalues]=useState({
@@ -19,8 +22,9 @@ function CreatePost() {
     })
     const {image,content}=values
     const printValues= ()=>{
+        setPostLoad(true)
        
-       
+        
         data.append("content",content)
         data.append("image",image)
         const userId=isAuthenticated().user._id;

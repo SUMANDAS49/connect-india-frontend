@@ -1,11 +1,11 @@
 import {createContext,useState} from "react"
-export const PostReloadContext=createContext();
+export const PostLoaderContext=createContext();
 
-export const PostReloadContextProvider=(props)=>{
- const [postReload,setPostReload]=useState(false)
+export const PostLoaderContextProvider=(props)=>{
+ const [postLoad,setPostLoad]=useState(true)
  return(
-  <PostReloadContext.Provider value={[postReload,setPostReload]}>
+  <PostLoaderContext.Provider value={[postLoad,setPostLoad]}>
    {props.children}
-  </PostReloadContext.Provider>
+  </PostLoaderContext.Provider>
  )
 }
