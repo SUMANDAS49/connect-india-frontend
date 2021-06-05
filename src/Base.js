@@ -1,14 +1,18 @@
 import React from 'react'
+import { PostReloadContextProvider } from './components/Contexts/PostLoaderContext'
 import Nav from './components/navbar/Nav'
 
 
-function Base({children}) {
+function Base({ children }) {
     return (
-        <div>
-            <Nav />
-            {children}
-            
-        </div>
+        <PostReloadContextProvider>
+            <div>
+                <Nav />
+                {children}
+
+            </div>
+        </PostReloadContextProvider>
+
     )
 }
 

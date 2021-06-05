@@ -1,12 +1,16 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import {isAuthenticated} from "../auth/Helper"
 import "./post.css"
 
 
+
 import { uploadPost } from "./PostHelper";
 import { compressImage } from "./Helpers/Compressor";
+
+import { PostReloadContext } from "../Contexts/PostLoaderContext";
 function CreatePost() {
+  const [postReload,setPostReload]=useContext(PostReloadContext)
 
     const data=new FormData()
     const [values,setvalues]=useState({
@@ -16,7 +20,7 @@ function CreatePost() {
     const {image,content}=values
     const printValues= ()=>{
        
-        
+       
         data.append("content",content)
         data.append("image",image)
         const userId=isAuthenticated().user._id;
@@ -24,7 +28,8 @@ function CreatePost() {
         uploadPost(userId,token,data).then((r)=>{
             console.log(r)
             setvalues({image:"",content:""})
-            window.location.reload()
+            setPostReload(!postReload)
+           
         }).catch((err)=>{
             console.log(err)
         })

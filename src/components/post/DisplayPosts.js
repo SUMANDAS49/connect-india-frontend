@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import { isAuthenticated } from "../auth/Helper";
 import { getAllPosts } from "./PostHelper";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import {Redirect} from "react-router-dom"
 import "./displayPosts.css"
 import PostCard from "./PostCard";
+import { PostReloadContext } from "../Contexts/PostLoaderContext";
+
 function DisplayPosts() {
   const redirectToLogin=()=>{
 return <Redirect to="/auth/login" />
   }
   const [data, setdata] = useState({});
   const [loading, setLoading] = useState(true);
+  const [postsReload,setPostReload]=useContext(PostReloadContext)
   const [error, setError] = useState({
     message: "",
     isError: false,
   });
+  useEffect(()=>{
+    setLoading(true)
+  },[postsReload])
   useEffect(() => {
     if (isAuthenticated()) {
+      
       const token = isAuthenticated().token;
       const userId = isAuthenticated().user._id;
       getAllPosts(userId, token)
@@ -25,7 +32,7 @@ return <Redirect to="/auth/login" />
             setError({ message: r.error, isError: true });
           } else {
             setdata(r);
-            console.log(data);
+            
             setLoading(false);
           }
         })
@@ -33,25 +40,21 @@ return <Redirect to="/auth/login" />
           console.log(err);
         });
     }
-  }, []);
+  }, [postsReload]);
   const errorMessage = () => {
     return <div className="display-post-error">{error.message}</div>;
   };
-  if (loading === true) {
-    return (
-      <div className="loader">
-        {!isAuthenticated() && <img src="loader.gif" className="actual" />}
-        {!isAuthenticated() && redirectToLogin()}
-      </div>
-    );
-  } else {
+  {
     return (
       <div className="display-posts-body">
         {error.isError && errorMessage()}
         <div>
+          {
+            loading && <img className="loader" src="./loader1.gif" />
+          }
         {
             
-            data.posts.map((d) => {
+            !loading && data.posts.map((d) => {
                 return <PostCard name={d.author} email={d.email} content={d.content} id={d} idr={d._id} authorId={d.authorId} />;
               })
         }

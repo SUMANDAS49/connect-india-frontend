@@ -6,8 +6,11 @@
   border-radius: 6px;
 }
 .loader{
-  width: 70px;
+  width: 90px;
     margin: auto;
+    position: relative;
+    left: 34%;
+    top: 5px;
 
 }
 .loader .actual{
@@ -27,8 +30,11 @@
     padding: 5px;
   }
   .loader{
-    width: 70px;
-      margin: auto;
+    width: 60px;
+    margin: auto;
+    position: relative;
+    left: 39%;
+    top: 5px;
   
   }
   .loader .actual{

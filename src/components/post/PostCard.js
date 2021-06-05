@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useContext} from "react";
 import ImageHelper from "./Helpers/ImageHelper";
 import "./postCard.css"
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
@@ -8,15 +8,18 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {isAuthenticated} from "../auth/Helper"
 import { deletePost } from "./Helpers/PostDeleteHelper";
+import { PostReloadContext } from "../Contexts/PostLoaderContext";
 function PostCard({ id, content, name, likes,email,idr,authorId }) {
   const [displayMore,setDisplayMore]=useState(false)
- 
+
+const [postReload,setPostReload]=useContext(PostReloadContext)
   const deletePostHandler=()=>{
+    
     const userId=isAuthenticated().user._id
     const postId=idr;
     const token=isAuthenticated().token
     deletePost(postId,userId,token).then((r)=>{
-      window.location.reload()
+      setPostReload(!postReload)
     }).catch((err)=>{
       console.log(err)
     })
@@ -40,9 +43,9 @@ function PostCard({ id, content, name, likes,email,idr,authorId }) {
         </div>
         <div className="email">{email}</div>
       </div>
-      <div className="post-card-image">
+      { <div className="post-card-image">
         <ImageHelper product={id} />
-      </div>
+      </div>}
       <div className="content">
         {content}
       </div>

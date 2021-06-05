@@ -73,13 +73,23 @@ flex: auto;
 }
 .show-more-form .delete{
   margin: auto;
-  width: 84px;
+  width: 384px;
   font-size: 21px;
+  text-align: center;
 }
 .show-more-form .about{
   margin: auto;
-  width: 84px;
+  text-align: center;
+  width: 384px;
   font-size: 21px;
+}
+.show-more-form .delete:hover{
+  background-color:#092349 ;
+  color: white;
+}
+.show-more-form .about:hover{
+  background-color:#092349 ;
+  color: white;
 }
 @media (max-width: 410px) {
   .post-card {
@@ -116,6 +126,34 @@ flex: auto;
   .post-card .content {
     font-size: 16px;
     font-family: system-ui;
+  }
+  .show-more-form{
+    height: 48px;
+    background-color: white;
+    color: black;
+    width: auto;
+    padding: 14px;
+    border-radius: 10px;
+  }
+  .show-more-form .delete{
+    margin: auto;
+    width: 253px;
+    font-size: 21px;
+    text-align: center;
+  }
+  .show-more-form .about{
+    margin: auto;
+    text-align: center;
+    width: 253px;
+    font-size: 21px;
+  }
+  .show-more-form .delete:hover{
+    background-color:#092349 ;
+    color: white;
+  }
+  .show-more-form .about:hover{
+    background-color:#092349 ;
+    color: white;
   }
 }
 
