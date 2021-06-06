@@ -1,0 +1,42 @@
+.profile-container{
+
+}
+.profile-container .user-details-screen{
+ background-color: #3b9f47;
+ width: 437px;
+ margin: auto;
+ color: white;
+ height: auto;
+ border-radius: 10px;
+ padding: 10px;
+}
+
+.profile-container .user-details-screen ul{
+
+}
+.profile-container .user-details-screen ul li{
+ 
+}
+@media(max-width:410px){
+ .profile-container{
+
+ }
+ .profile-container .user-details-screen{
+  background-color: #3b9f47;
+  width: 90vw;
+  margin: auto;
+  color: white;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  top: 10px;
+ }
+ 
+ .profile-container .user-details-screen ul{
+ 
+ }
+ .profile-container .user-details-screen ul li{
+  
+ }
+}

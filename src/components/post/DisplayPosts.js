@@ -56,7 +56,7 @@ return <Redirect to="/auth/login" />
         {
             
             !postLoad && data.posts.map((d) => {
-                return <PostCard name={d.author} email={d.email} content={d.content} id={d} idr={d._id} authorId={d.authorId} />;
+                return <PostCard name={d.authorId===isAuthenticated().user._id?"You":d.author} email={d.email} content={d.content} id={d} idr={d._id} authorId={d.authorId} />;
               })
         }
         </div>

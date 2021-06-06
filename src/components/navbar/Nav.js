@@ -23,10 +23,14 @@ function Nav() {
   const displayUserName = () => {
     if (isAuthenticated().user !== undefined) {
       return (
-        <div className="displayName">
-          <AccountCircleIcon className="userIcon" />{" "}
-          {isAuthenticated().user.name}
-        </div>
+        
+          <div className="displayName">
+            <AccountCircleIcon className="userIcon" />{" "}
+            <Link style={{color:"white",textDecoration:"none"}} to={`/${isAuthenticated().user.name}/profile`}>
+            
+            {isAuthenticated().user.name}
+            </Link>
+          </div>
       );
     } else {
       return (
@@ -132,32 +136,32 @@ function Nav() {
       </Fade>
       <div className="outside">
         <ul>
-        {isAuthenticated() && (
-          <Link
-            style={{
-              paddingLeft: 13,
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li>
-              <NotificationsNoneOutlinedIcon  className="main" />
-            </li>
-          </Link>
-        )}
-        {isAuthenticated() && (
-          <Link
-            style={{
-              paddingLeft: 13,
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li>
-              <TelegramIcon  className="main" />
-            </li>
-          </Link>
-        )}
+          {isAuthenticated() && (
+            <Link
+              style={{
+                paddingLeft: 13,
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <NotificationsNoneOutlinedIcon className="main" />
+              </li>
+            </Link>
+          )}
+          {isAuthenticated() && (
+            <Link
+              style={{
+                paddingLeft: 13,
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <TelegramIcon className="main" />
+              </li>
+            </Link>
+          )}
         </ul>
       </div>
     </div>
