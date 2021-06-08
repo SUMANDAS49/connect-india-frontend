@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Base from "../../Base";
 import "./auth.css";
 import { signUp } from "./Helper";
 function Signup() {
@@ -32,6 +33,7 @@ function Signup() {
     setClicked(true);
   };
   return (
+    <Base>
     <div className="sign-up-body">
       <div className="title">Register here</div>
       {err.length !== 0 && success === false
@@ -83,6 +85,8 @@ function Signup() {
         </button>
       </div>
     </div>
+    </Base>
+    
   );
 }
 
