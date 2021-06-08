@@ -21,7 +21,7 @@ function SearchBox() {
   userData.forEach((user) => {
 
    // console.log(user.name.substring(0,l-1))
-   if ((user.name.substring(0, l)).toLowerCase == query.toLowerCase && qresult.length !== 0) {
+   if (user.name.substring(0, l)== query.toLowerCase() && qresult.length !== 0) {
 
     res.push(user)
 
