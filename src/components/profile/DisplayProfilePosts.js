@@ -9,9 +9,9 @@ function DisplayProfilePosts({ id }) {
    setPost(p)
   })
  }, [])
- return (
+ return ( 
   <div>
-  {post &&  <PostCard id={post._id} content={post.content} name={post.author} email={post.email} idr={post._id} authorId={post.authorId} /> }
+  {post &&  <PostCard id={post} content={post.content} name={post.author} email={post.email} idr={post._id} authorId={post.authorId} /> }
   </div>
  )
 }

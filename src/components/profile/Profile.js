@@ -7,15 +7,18 @@ import DisplayProfilePosts from './DisplayProfilePosts';
 import "./profileStyle.css"
 
 function Profile() {
+  
   const [userData, setUserData] = useState({})
   const [wait,setWait]=useState(true)
   useEffect(() => {
-    const { _id } = isAuthenticated().user;
+    const _id  = isAuthenticated().user._id;
     getUserProfile(_id).then((r) => {
+    
       setUserData(r);
     })
   }, [])
   useEffect(()=>{
+    console.log(userData)
 setWait(false)
   },[userData])
   
