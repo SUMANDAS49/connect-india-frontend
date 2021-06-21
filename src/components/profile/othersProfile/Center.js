@@ -19,6 +19,7 @@ function Center() {
     const [uId, setUId] = useState("")
     const [wait, setWait] = useState(true)
     const [uData, setUdata] = useState({})
+    const { targetName } = isAuthenticated().user
     useEffect(() => {
 
         console.log("---" + window.location.href)
@@ -53,7 +54,7 @@ function Center() {
             <Base>
                 <div className="profile-container">
                     <div className="user-details-screen">
-                        <h3 style={{ textAlign: "center" }}>Hello! {isAuthenticated().user.name}</h3>
+                        <h3 style={{ textAlign: "center" }}>Hello! {targetName}</h3>
                         <ul>
                             <li>Name: {uData.name}</li>
                             <li>Email: {uData.email}</li>
@@ -64,8 +65,8 @@ function Center() {
                     </div>
                     <div className="center-tool-box">
                         <ul>
-                            <Link to={`/user/message/${uData._id}`}><li><SmsTwoToneIcon style={{fontSize:"50px"}} /></li></Link>
-                            <li><DuoTwoToneIcon style={{fontSize:"50px"}} /></li>
+                            <Link to={`/user/message/${uData._id}`}><li><SmsTwoToneIcon style={{ fontSize: "50px" }} /></li></Link>
+                            <li><DuoTwoToneIcon style={{ fontSize: "50px" }} /></li>
                         </ul>
                     </div>
                     <div className="user-posts">
