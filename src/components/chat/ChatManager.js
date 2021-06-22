@@ -6,6 +6,7 @@ import { isAuthenticated } from "../auth/Helper";
 import ScrollableFeed from 'react-scrollable-feed'
 
 import { useState, useEffect, useRef } from "react";
+import { getUserProfile } from "../profile/ApiHelper";
 
 // const endpoint = "ws://localhost:8000/";
 const endpoint = "ws://okindia.herokuapp.com/";
@@ -24,6 +25,8 @@ const ChatManager = () => {
     authorId: "",
     time: "",
   });
+  const [waitForTargetDetails, setWaitForTargetDetails] = useState(true)
+  const [targetDetails, setTargetDetails] = useState({});
   //auto scrole to buttom 
   const bottomRef = useRef(null);
 
@@ -48,6 +51,7 @@ const ChatManager = () => {
     socket = io(endpoint);
     console.log(socket);
 
+
     socket.emit(
       "joined",
       {
@@ -62,6 +66,18 @@ const ChatManager = () => {
       }
     );
   }, []);
+  useEffect(() => {
+    getUserProfile(to).then((dta) => {
+      setTargetDetails(dta);
+      setTimeout(() => {
+        setWaitForTargetDetails(false);
+        console.log(targetDetails)
+
+      }, 500)
+
+    })
+
+  }, [to])
 
 
 
@@ -96,7 +112,7 @@ const ChatManager = () => {
   return (
     <Base>
       <div className="chat-main">
-        <div className="chat-heading">Chat manager</div>
+        <div className="chat-heading">{waitForTargetDetails === false ? targetDetails.name + `(${targetDetails.email})` : "loading"}</div>
         <div className="message-display">
 
           <ul>

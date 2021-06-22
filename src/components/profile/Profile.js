@@ -7,43 +7,43 @@ import DisplayProfilePosts from './DisplayProfilePosts';
 import "./profileStyle.css"
 
 function Profile() {
-  
+
   const [userData, setUserData] = useState({})
-  const [wait,setWait]=useState(true)
+  const [wait, setWait] = useState(true)
   useEffect(() => {
-    const _id  = isAuthenticated().user._id;
+    const _id = isAuthenticated().user._id;
     getUserProfile(_id).then((r) => {
-    
+
       setUserData(r);
     })
   }, [])
-  useEffect(()=>{
+  useEffect(() => {
     console.log(userData)
-setWait(false)
-  },[userData])
-  
- 
+    setWait(false)
+  }, [userData])
+
+
 
   return (
     <Base>
       <div className="profile-container">
-        <SearchBox />
-         <div className="user-details-screen">
-           <h3 style={{textAlign:"center"}}>Hello! {userData.name}</h3>
-           <ul>
-             <li>Name: {userData.name}</li>
-             <li>Email: {userData.email}</li>
-             <li>ID: {userData._id}</li>
-             
-           </ul>
+        {/* <SearchBox /> */}
+        <div className="user-details-screen">
+          <h3 style={{ textAlign: "center" }}>Hello! {userData.name}</h3>
+          <ul>
+            <li>Name: {userData.name}</li>
+            <li>Email: {userData.email}</li>
+            <li>ID: {userData._id}</li>
 
-         </div>
-         <div className="user-posts">
-           {!wait && userData.postIds && userData.postIds.map((pi)=>{
-             return <DisplayProfilePosts id={pi} />
-           })}
+          </ul>
 
-         </div>
+        </div>
+        <div className="user-posts">
+          {!wait && userData.postIds && userData.postIds.map((pi) => {
+            return <DisplayProfilePosts id={pi} />
+          })}
+
+        </div>
       </div>
     </Base>
   )

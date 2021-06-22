@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getAllUsers } from './SearchApiCall'
 import SearchIcon from '@material-ui/icons/Search';
 import "./searchBox.css"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 function SearchBox() {
   const [searchClicked, setSearchClicked] = useState(false)
   const [userData, setUserData] = useState([])
@@ -49,7 +49,7 @@ function SearchBox() {
           <ul>
             {
               qresult.map((r) => {
-                return <li><Link to={`/user/${r._id}/profile`} style={{textDecoration:"none",color:"white"}}>{r.name}</Link></li>
+                return <li><Link to={`/user/${r._id}/profile`} style={{ textDecoration: "none", color: "white" }}>{r.name}</Link></li>
               })
             }
           </ul>
@@ -60,9 +60,9 @@ function SearchBox() {
   return (
     <div className="search-container">
       {
-        searchClicked && searchInput()
+        searchInput()
       }
-      <SearchIcon className="btn" onClick={() => { setSearchClicked(!searchClicked) }} />
+
 
     </div>
   )

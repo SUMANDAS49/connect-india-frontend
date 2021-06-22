@@ -50,7 +50,7 @@
 
 @media (max-width: 420px) {
   .chat-main {
-    height: 81vh;
+    height: 85vh;
     background-color: #092349;
     width: 93vw;
     margin: auto;
@@ -59,6 +59,7 @@
     padding: 7px;
     padding-top: 0px;
     padding-bottom: 30px;
+    margin-top: 8px;
   }
   .chat-heading {
     padding: 10px;
@@ -84,7 +85,9 @@
 
   .message-input {
     position: relative;
-    bottom: 3px;
+    bottom: -3px;
+    background-color: #092349;
+    padding: 4px;
   }
   .message-input input {
     width: 66vw;

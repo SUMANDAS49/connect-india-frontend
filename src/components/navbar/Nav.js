@@ -10,6 +10,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import Bounce from "react-reveal/Bounce";
 import Fade from "react-reveal/Fade";
 import { isAuthenticated, LogIn } from "../auth/Helper";
+import SearchIcon from '@material-ui/icons/Search';
+
 
 function Nav() {
   const [hide, setHide] = useState(false);
@@ -23,14 +25,14 @@ function Nav() {
   const displayUserName = () => {
     if (isAuthenticated().user !== undefined) {
       return (
-        
-          <div className="displayName">
-            <AccountCircleIcon className="userIcon" />{" "}
-            <Link style={{color:"white",textDecoration:"none"}} to={`/${isAuthenticated().user.name}/profile`}>
-            
+
+        <div className="displayName">
+          <AccountCircleIcon className="userIcon" />{" "}
+          <Link style={{ color: "white", textDecoration: "none" }} to={`/${isAuthenticated().user.name}/profile`}>
+
             {isAuthenticated().user.name}
-            </Link>
-          </div>
+          </Link>
+        </div>
       );
     } else {
       return (
@@ -58,7 +60,9 @@ function Nav() {
   return (
     <div className="nav">
       <div className="head">
+
         <Bounce>
+
           <div className="title">okindia</div>
           {displayUserName()}
         </Bounce>
@@ -159,6 +163,19 @@ function Nav() {
             >
               <li>
                 <TelegramIcon className="main" />
+              </li>
+            </Link>
+          )}
+          {isAuthenticated() && (
+            <Link to="/user/profile/search"
+              style={{
+                paddingLeft: 13,
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <SearchIcon className="main" />
               </li>
             </Link>
           )}

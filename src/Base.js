@@ -11,6 +11,8 @@ function Base({ children }) {
             <PostReloadContextProvider>
                 <div>
                     <Nav />
+
+
                     {children}
 
                 </div>
