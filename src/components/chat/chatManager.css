@@ -40,6 +40,9 @@
   border-radius: 6px;
   border: none;
 }
+.message-input input:focus {
+  outline: none;
+}
 .message-input button {
   width: 84px;
   height: 35px;
@@ -50,7 +53,7 @@
 
 @media (max-width: 420px) {
   .chat-main {
-    height: 85vh;
+    height: 93vh;
     background-color: #092349;
     width: 93vw;
     margin: auto;
@@ -67,7 +70,7 @@
   }
   .message-display {
     background-color: rgb(240, 240, 240);
-    height: 69vh;
+    height: 80vh;
     border-radius: 8px;
     padding: 5px;
   }

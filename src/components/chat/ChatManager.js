@@ -5,14 +5,14 @@ import io from "socket.io-client";
 import { isAuthenticated } from "../auth/Helper";
 import ScrollableFeed from 'react-scrollable-feed'
 
+
 import { useState, useEffect, useRef } from "react";
 import { getUserProfile } from "../profile/ApiHelper";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
 
 // const endpoint = "ws://localhost:8000/";
 const endpoint = "ws://okindia.herokuapp.com/";
-
-
-
 
 let socket;
 const ChatManager = () => {
@@ -110,46 +110,51 @@ const ChatManager = () => {
 
 
   return (
-    <Base>
-      <div className="chat-main">
-        <div className="chat-heading">{waitForTargetDetails === false ? targetDetails.name + `(${targetDetails.email})` : "loading"}</div>
-        <div className="message-display">
 
-          <ul>
+    <div className="chat-main">
+      <div className="chat-heading">
+        <Link to="/">
+          <ArrowBackIcon style={{ fontSize: "20px", marginRight: "10px", color: "white" }} />
+        </Link>
+        {waitForTargetDetails === false ? targetDetails.name + `(${targetDetails.email})` : "loading"}
+      </div>
+      <div className="message-display">
 
-            {
-              chats.map((chat) => {
-                return <li style={chat.authorId === isAuthenticated().user._id ? { backgroundColor: "black", float: "right" } : { float: "left" }}>{chat.text}</li>
-              })
-            }
-            <li style={{ backgroundColor: "white" }} ref={bottomRef} />
+        <ul>
+
+          {
+            chats.map((chat) => {
+              return <li style={chat.authorId === isAuthenticated().user._id ? { backgroundColor: "black", float: "right" } : { float: "left" }}>{chat.text}</li>
+            })
+          }
+          <li style={{ backgroundColor: "transparent" }} ref={bottomRef} />
 
 
-          </ul>
+        </ul>
 
-
-        </div>
-        <div className="message-input">
-          <input
-            placeholder="write here..."
-            type="text"
-            value={chat.text}
-            onChange={(e) => {
-              setChat({ text: e.target.value, authorId: isAuthenticated().user._id, time: Date() });
-            }}
-
-          />
-          <button
-            onClick={() => {
-              sendMessage()
-            }}
-          >
-            send
-          </button>
-        </div>
 
       </div>
-    </Base>
+      <div className="message-input">
+        <input
+          placeholder="write here..."
+          type="text"
+          value={chat.text}
+          onChange={(e) => {
+            setChat({ text: e.target.value, authorId: isAuthenticated().user._id, time: Date() });
+          }}
+
+        />
+        <button
+          onClick={() => {
+            sendMessage()
+          }}
+        >
+          send
+        </button>
+      </div>
+
+    </div>
+
   );
 };
 
