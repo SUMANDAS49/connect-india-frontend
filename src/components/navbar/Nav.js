@@ -61,7 +61,7 @@ function Nav() {
     <div className="nav">
       <div className="head">
 
-        <Bounce>
+        <Bounce top>
 
           <div className="title">okindia</div>
           {displayUserName()}
@@ -74,7 +74,7 @@ function Nav() {
       >
         {tgl()}
       </button>
-      <Fade top big>
+      <Bounce top big>
         <div className="main-nav" id={hide === true ? "hide" : "show"}>
           <ul>
             <Link
@@ -137,7 +137,7 @@ function Nav() {
             )}
           </ul>
         </div>
-      </Fade>
+      </Bounce>
       <div className="outside">
         <ul>
           {isAuthenticated() && (

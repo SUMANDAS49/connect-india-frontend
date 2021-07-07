@@ -1,32 +1,32 @@
-import React, { Profiler, useEffect, useState } from 'react'
-import Base from '../../../Base'
-import { isAuthenticated } from '../../auth/Helper'
-import { getUserProfile } from '../ApiHelper'
-import DisplayProfilePosts from '../DisplayProfilePosts'
-import Profile from '../Profile'
+import React, { Profiler, useEffect, useState } from "react";
+import Base from "../../../Base";
+import { isAuthenticated } from "../../auth/Helper";
+import { getUserProfile } from "../ApiHelper";
+import DisplayProfilePosts from "../DisplayProfilePosts";
+import Profile from "../Profile";
 
+import DuoTwoToneIcon from "@material-ui/icons/DuoTwoTone";
+import SmsTwoToneIcon from "@material-ui/icons/SmsTwoTone";
+import { Link } from "react-router-dom";
 
-import DuoTwoToneIcon from '@material-ui/icons/DuoTwoTone';
-import SmsTwoToneIcon from '@material-ui/icons/SmsTwoTone';
-import { Link } from 'react-router-dom'
+import "../profileStyle.css";
 
-import "../profileStyle.css"
-
-import "./center.css"
-
+import "./center.css";
+import FollowUnfollow from "../../followManager/FollowUnfollow";
 
 function Center() {
-    const [uId, setUId] = useState("")
-    const [wait, setWait] = useState(true)
-    const [uData, setUdata] = useState({})
-    const { targetName } = isAuthenticated().user
-    useEffect(() => {
+    const [uId, setUId] = useState("");
+    const [wait, setWait] = useState(true);
+    const [uIdDone, setUIdDone] = useState(false)
+    const [uData, setUdata] = useState({});
+    const { targetName } = isAuthenticated().user;
 
-        console.log("---" + window.location.href)
-        let s = window.location.href
-        let l = s.length
+    useEffect(() => {
+        console.log("---" + window.location.href);
+        let s = window.location.href;
+        let l = s.length;
         let i = 0;
-        let target = ""
+        let target = "";
         while (i < l - 24) {
             if (s[i] === "/" && s[i + 24 + 1] === "/") {
                 target = s.substr(i + 1, 24);
@@ -34,22 +34,28 @@ function Center() {
             }
             i++;
         }
-        console.log(target)
-        setUId(target)
-        console.log(uId)
+        console.log(target);
+        setUId(target);
+        setUIdDone(true)
 
-
-    }, [])
+    }, []);
     useEffect(() => {
-        getUserProfile(uId).then((d) => {
-            console.log(d)
-            setUdata(d)
+
+        if (uIdDone === true) {
+            // console.log("*******#######" + uId);
             setTimeout(() => {
-                setWait(false)
-            }, 500);
-        })
-    }, [uId])
-    if (uId.length !== 0 && wait === false)
+                getUserProfile(uId).then((d) => {
+
+
+                    console.log(d);
+                    setUdata(d);
+                    setWait(false);
+
+                });
+            }, 500)
+        }
+    }, [uId]);
+    if (wait === false)
         return (
             <Base>
                 <div className="profile-container">
@@ -58,30 +64,46 @@ function Center() {
                         <ul>
                             <li>Name: {uData.name}</li>
                             <li>Email: {uData.email}</li>
-
-
                         </ul>
-
                     </div>
+                    <FollowUnfollow
+                        myId={isAuthenticated().user._id}
+                        userId={uId}
+                        token={isAuthenticated().token}
+                    />
                     <div className="center-tool-box">
-                        <ul>
-                            <Link to={`/user/message/${uData._id}`}><li><SmsTwoToneIcon style={{ fontSize: "50px" }} /></li></Link>
-                            <li><DuoTwoToneIcon style={{ fontSize: "50px" }} /></li>
-                        </ul>
+                        <div className="chat-icon">
+                            <span>
+                                <Link to={`/user/message/${uData._id}`}>
+                                    <SmsTwoToneIcon style={{ fontSize: "50px", margin: "auto" }} />
+                                </Link>
+                            </span>
+
+                        </div>
+                        <div className="video-call-icon">
+                            <span>
+                                <DuoTwoToneIcon style={{ fontSize: "50px" }} />
+                            </span>
+
+                        </div>
                     </div>
                     <div className="user-posts">
-                        {!wait && uData.postIds && uData.postIds.map((pi) => {
-                            return <DisplayProfilePosts id={pi} />
-                        })}
-
+                        {!wait &&
+                            uData.postIds &&
+                            uData.postIds.map((pi) => {
+                                return <DisplayProfilePosts id={pi} />;
+                            })}
                     </div>
                 </div>
             </Base>
-
-        )
+        );
     else {
-        return (<div><h1>Loading...</h1></div>)
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        );
     }
 }
 
-export default Center
+export default Center;

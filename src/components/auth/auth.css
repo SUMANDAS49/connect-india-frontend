@@ -1,10 +1,10 @@
 .sign-up-body {
   margin: 0px;
-    background-color: #092349;
-    width: 98.7vw;
-    height: 607px;
-    position: absolute;
-    top: 109px;
+  background-color: #092349;
+  width: 99vw;
+  height: 607px;
+  position: absolute;
+  top: 109px;
 }
 .sign-up-body .title {
   color: white;
@@ -24,50 +24,72 @@
   flex-direction: column;
   margin-top: 28px;
 }
-.ip1 {
-  height: 32px;
-  width: 313px;
-  border: solid 2px black;
-  border-radius: 7px;
+.ip0 {
+  height: 45px;
+  width: 324px;
+  border: none;
+  border-bottom: solid 1px black;
+  border-radius: 1px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 31px;
+  font-size: 20px;
+}
+.ip1 {
+  height: 45px;
+  width: 324px;
+  border: none;
+  border-bottom: solid 1px black;
+  border-radius: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 31px;
+  font-size: 20px;
+}
+* :focus {
+  outline: none;
+  border-bottom: solid 2px black;
+  font-weight: bold;
 }
 .ip2 {
-  height: 32px;
-  width: 313px;
-  border: solid 2px black;
+  height: 45px;
+  width: 324px;
+  border: none;
+  border-bottom: solid 1px black;
+  border-radius: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 31px;
+  font-size: 20px;
+}
+.ip3 {
+  height: 45px;
+  width: 90px;
+  border: none;
   border-radius: 7px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: #092349;
+  color: white;
 }
-.ip3{
-    height: 45px;
-    width: 90px;
-    border: solid 2px black;
-    border-radius: 7px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    font-size: 20px;
-  }
-  .sign-up-error{
-    color: red;
-    font-size: 26px;
-    text-align: center;
-    background: yellow;
-    width: 269px;
-    margin: auto;
-    margin-top: 10px;
-  }
-  .sign-up-success{
-    background-color: yellow;
-    color: green;
-    font-size: 24px;
-    width: 413px;
-    margin: auto;
-  }
+.sign-up-error {
+  color: red;
+  font-size: 26px;
+  text-align: center;
+  background: yellow;
+  width: 269px;
+  margin: auto;
+  margin-top: 10px;
+}
+.sign-up-success {
+  background-color: yellow;
+  color: green;
+  font-size: 24px;
+  width: 413px;
+  margin: auto;
+}
 @media (max-width: 400px) {
   .sign-up-body {
     margin: 0px;
@@ -95,25 +117,40 @@
     flex-direction: column;
     margin-top: 41px;
   }
-  .ip1 {
-    height: 32px;
-    width: 313px;
-    border: solid 2px black;
-    border-radius: 7px;
+  .ip0 {
+    height: 42px;
+    width: 287px;
+    border: none;
+    border-bottom: solid 1px black;
+    border-radius: 0px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 24px;
+    font-size: 18px;
+  }
+  .ip1 {
+    height: 42px;
+    width: 287px;
+    border: none;
+    border-bottom: solid 1px black;
+    border-radius: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+    font-size: 18px;
   }
   .ip2 {
-    height: 32px;
-    width: 313px;
-    border: solid 2px black;
-    border-radius: 7px;
+    height: 42px;
+    width: 287px;
+    border: none;
+    border-bottom: solid 1px black;
+    border-radius: 0px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 24px;
+    font-size: 18px;
   }
-  .ip3{
+  .ip3 {
     height: 45px;
     width: 90px;
     border: solid 2px black;
@@ -123,7 +160,7 @@
     margin-top: 40px;
     font-size: 20px;
   }
-  .sign-up-error{
+  .sign-up-error {
     color: red;
     font-size: 26px;
     text-align: center;
@@ -132,7 +169,7 @@
     margin: auto;
     margin-top: 10px;
   }
-  .sign-up-success{
+  .sign-up-success {
     background-color: yellow;
     color: green;
     font-size: 21px;

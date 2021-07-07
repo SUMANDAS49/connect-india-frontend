@@ -1,49 +1,39 @@
-.center-tool-box{
+.center-tool-box {
+  height: 50px;
+  width: 27.1vw;
+  background-color: #092349;
+  color: white;
+  margin: auto;
+  border-radius: 9px;
+  padding: 22px;
+  margin-top: 10px;
+  display: flex;
+}
+.center-tool-box .chat-icon {
+  flex: auto;
+}
+.center-tool-box .video-call-icon {
+  flex: auto;
+}
+@media (max-width: 420px) {
+  .center-tool-box {
     height: 50px;
-    width: 24.3vw;
+    width: 83.3vw;
     background-color: deepskyblue;
     color: white;
     margin: auto;
     border-radius: 9px;
     padding: 22px;
-    margin-top: 10px;
-}
-.center-tool-box ul{
+    margin-top: 19px;
+  }
+  .center-tool-box ul {
     display: flex;
     list-style: none;
     text-align: center;
-
-
-}
-.center-tool-box ul li{
-    padding-left: 40px;
-    padding-right: 3px;
-    font-size: 27px;
-
-}
-@media(max-width:420px)
-{
-    .center-tool-box{
-        height: 50px;
-        width: 83.3vw;
-        background-color: deepskyblue;
-        color: white;
-        margin: auto;
-        border-radius: 9px;
-        padding: 22px;
-        margin-top: 19px;
-    }
-    .center-tool-box ul{
-        display: flex;
-        list-style: none;
-        text-align: center;
-    
-    
-    }
-    .center-tool-box ul li{
-        padding-left: 10px;
+  }
+  .center-tool-box ul li {
+    padding-left: 10px;
     padding-right: 3px;
     font-size: 26px;
-    
-    }
+  }
 }
