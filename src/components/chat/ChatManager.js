@@ -11,8 +11,8 @@ import { getUserProfile } from "../profile/ApiHelper";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
 
-// const endpoint = "ws://localhost:8000/";
-const endpoint = "ws://okindia.herokuapp.com/";
+const endpoint = "ws://localhost:8000/";
+// const endpoint = "ws://okindia.herokuapp.com/";
 
 let socket;
 const ChatManager = () => {
