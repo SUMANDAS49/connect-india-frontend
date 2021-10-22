@@ -2,9 +2,10 @@
   margin: 0px;
   background-color: #092349;
   width: 99vw;
-  height: 607px;
+  height: 100vh;
   position: absolute;
   top: 109px;
+  overflow-x: hidden;
 }
 .sign-up-body .title {
   color: white;
@@ -95,7 +96,7 @@
     margin: 0px;
     background-color: #092349;
     width: 100vw;
-    height: 607px;
+    height: 100vh;
     position: relative;
     top: -51px;
   }
