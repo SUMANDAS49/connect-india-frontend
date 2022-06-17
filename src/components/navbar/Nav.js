@@ -1,188 +1,85 @@
-import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
-import "./cstyle.css";
-import CloseIcon from "@material-ui/icons/Close";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
-import TelegramIcon from '@material-ui/icons/Telegram';
-import HomeIcon from "@material-ui/icons/Home";
-import Bounce from "react-reveal/Bounce";
-import Fade from "react-reveal/Fade";
-import { isAuthenticated, LogIn } from "../auth/Helper";
+import React from 'react'
+import "./cstyle.css"
+// import SearchIcon from '@mui/icons-material/Search';
 import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import MessageIcon from '@material-ui/icons/Message';
+import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { isAuthenticated } from '../auth/Helper';
 
 
-function Nav() {
-  const [hide, setHide] = useState(false);
-  const [changed, setChanged] = useState(false);
-
-  const logout = () => {
-    if (typeof window !== undefined) {
-      localStorage.removeItem("auth");
-    }
-  };
-  const displayUserName = () => {
-    if (isAuthenticated().user !== undefined) {
-      return (
-
-        <div className="displayName">
-          <AccountCircleIcon className="userIcon" />{" "}
-          <Link style={{ color: "white", textDecoration: "none" }} to={`/${isAuthenticated().user.name}/profile`}>
-
-            {isAuthenticated().user.name}
-          </Link>
-        </div>
-      );
-    } else {
-      return (
-        <Link to="auth/login">
-          <div className="displayName">.</div>
-        </Link>
-      );
-    }
-  };
-  const tgl = () => {
-    if (hide === false) {
-      return <CloseIcon />;
-    } else {
-      return (
-        <>
-          <MenuIcon />
-        </>
-      );
-    }
-  };
+function Nav({ children }) {
+  const [userDetails, setUserDetails] = useState({})
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
-    setHide(true);
-  }, []);
+    let data = JSON.parse(window.localStorage.getItem("auth"))
+    setUserDetails(data?.user)
 
+    setLoading(false)
+  }, [])
   return (
-    <div className="nav">
-      <div className="head">
-
-        <Bounce top>
-
-          <div className="title">okindia</div>
-          {displayUserName()}
-        </Bounce>
-      </div>
-      <button
-        onClick={() => {
-          setHide(!hide);
-        }}
-      >
-        {tgl()}
-      </button>
-      <Bounce top big>
-        <div className="main-nav" id={hide === true ? "hide" : "show"}>
-          <ul>
-            <Link
-              style={{
-                paddingLeft: 13,
-                textDecoration: "none",
-                color: "white",
-              }}
-              to="/"
-            >
-              {" "}
-              <li>
+    <div className='navBody'>
+      <div className='topBar'>
+        <div className='appName'>connect india</div>
+        {
+          isAuthenticated()
+          &&
+          <div className='topIcons'>
+            <div className='icon'>
+              <Link style={{ color: "white" }} to={`/user/profile/search`}>
+                <SearchIcon />
+              </Link>
+            </div>
+            <div className='icon'>
+              <Link style={{ color: "white" }} to={`/`}>
                 <HomeIcon />
-              </li>
-            </Link>
-            {!isAuthenticated() && (
-              <Link
-                style={{
-                  paddingLeft: 13,
-                  textDecoration: "none",
-                  color: "white",
-                }}
-                to="/auth/signup"
-              >
-                {" "}
-                <li>sign up</li>
               </Link>
-            )}
-            {!isAuthenticated() && (
-              <Link
-                style={{
-                  paddingLeft: 13,
-                  textDecoration: "none",
-                  color: "white",
-                }}
-                to="/auth/login"
-              >
-                {" "}
-                <li>Log in</li>
-              </Link>
-            )}
+            </div>
+            {
+              !loading && isAuthenticated() &&
+              <div className='icon'>
+                <Link style={{ color: "white" }} to={`/${userDetails.name}/profile`}>
+                  <AccountCircleIcon />
+                </Link>
+              </div>}
+          </div>
+        }
 
-            {isAuthenticated() && (
-              <Link
-                style={{
-                  paddingLeft: 13,
-                  textDecoration: "none",
-                  color: "white",
-                }}
-              >
-                {" "}
-                <li
-                  onClick={() => {
-                    logout();
-                  }}
-                >
-                  logout
-                </li>
+      </div>
+      <div>{children}</div>
+
+      <div className='bottomBar'>
+        <div className='icons'>
+          <div className='icon'>
+            <Link style={{ color: "white" }} to={`/user/profile/search`}>
+              <SearchIcon />
+            </Link>
+          </div>
+          <div className='icon'>
+            <Link style={{ color: "white" }} to={`/`}>
+              <HomeIcon />
+            </Link>
+          </div>
+          {
+            !loading && isAuthenticated() &&
+            <div className='icon'>
+              <Link style={{ color: "white" }} to={`/${userDetails.name}/profile`}>
+                <AccountCircleIcon />
               </Link>
-            )}
-          </ul>
+            </div>
+          }
+          <div className='icon'>
+            <Link style={{ color: "white" }} to={`/`}>
+              <MessageIcon />
+            </Link>
+          </div>
         </div>
-      </Bounce>
-      <div className="outside">
-        <ul>
-          {isAuthenticated() && (
-            <Link
-              style={{
-                paddingLeft: 13,
-                textDecoration: "none",
-                color: "white",
-              }}
-            >
-              <li>
-                <NotificationsNoneOutlinedIcon className="main" />
-              </li>
-            </Link>
-          )}
-          {isAuthenticated() && (
-            <Link
-              style={{
-                paddingLeft: 13,
-                textDecoration: "none",
-                color: "white",
-              }}
-            >
-              <li>
-                <TelegramIcon className="main" />
-              </li>
-            </Link>
-          )}
-          {isAuthenticated() && (
-            <Link to="/user/profile/search"
-              style={{
-                paddingLeft: 13,
-                textDecoration: "none",
-                color: "white",
-              }}
-            >
-              <li>
-                <SearchIcon className="main" />
-              </li>
-            </Link>
-          )}
-        </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

@@ -1,144 +1,78 @@
-.nav {
-  height: auto;
-  background-color: #092349;
+*{
+  /* background-color: wheat; */
+  margin: 0px;
+  
+}
+.navBody{
+  
+
+}
+.navBody .topBar{
+  background-color: #071231;
   color: white;
+  display: flex;
+  justify-content: space-between;
   position: sticky;
-  top: -55px;
-  z-index: 500;
-}
+  top: 0px;
+  z-index: 6;
 
-.nav .head .title {
-  font-size: 37px;
-  text-align: center;
-  font-family: cursive;
 }
-
-.nav .head .description {
-  font-size: 18px;
-  text-align: center;
-  font-family: cursive;
-}
-
-.nav .main-nav ul {
-  list-style: none;
-  display: flex;
-}
-
-.nav .main-nav ul li {
-  margin: 6px;
-  font-size: 20px;
-  margin-left: 23px;
-}
-
-.nav button {
-  display: none;
-  color: rgb(255, 255, 255);
-  background-color: #092349;
-  border: none;
-  height: 50px;
-  width: 50px;
-}
-
-.displayName {
-  position: absolute;
-  right: 22px;
-  top: 8px;
+.appName{
   font-size: 25px;
-  color: white;
+  word-spacing: 10px;
+  letter-spacing: 3px;
+  margin-left: 10px;
 }
-
-.outside {
-  width: 200px;
-  background-color: #092349;
-  height: 48px;
-  position: absolute;
-  top: 61px;
-  right: 20px;
-}
-
-.outside ul {
-  width: auto;
-  position: relative;
-  list-style: none;
-  background-color: #092349;
+.navBody .topBar .topIcons{
   display: flex;
-  margin: auto;
+  
+}
+.icon{
+  margin-right: 20px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.bottomBar{
+  display: none;
 }
 
-.outside ul .main {
-  font-size: 35px;
-}
-
-.outside ul li {
-  padding-left: 6px;
-}
-
-@media (max-width: 600px) {
-  .search-button {
-  }
-  .nav .head .title {
-    font-size: 36px;
-    text-align: center;
-    font-family: cursive;
-  }
-  .nav .head .description {
-    font-size: 22px;
-    text-align: center;
-    font-family: cursive;
-    padding: 10px;
-  }
-  .nav button {
-    display: block;
-  }
-  .nav .main-nav {
-    display: none;
-  }
-  .nav .main-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .nav .main-nav ul li {
-    font-size: 19px;
-    text-align: center;
-    margin-right: 60px;
-    margin-bottom: 14px;
-  }
-  #hide {
-    display: none;
-  }
-  #show {
-    display: block;
-    font-size: 10px;
-  }
-  .displayName {
-    position: absolute;
-    right: 10px;
-    top: 28px;
-    font-size: 16px;
+/* Mobile view  */
+@media (max-width: 450px) {
+  .navBody .topBar{
+    background-color: #071231;
     color: white;
-  }
-  .outside {
-    width: 173px;
-    background-color: #092349;
-    height: 32px;
-    position: absolute;
-    top: 61px;
-    right: 22px;
-  }
-  .outside ul {
-    width: auto;
-    position: relative;
-    right: 0px;
-    list-style: none;
-    background-color: #a7a7a700;
     display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    z-index: 6;
+    padding: 10px;
+  
+  }
+  .navBody .topBar .topIcons{
+    display: none;
+    
+  }
+  .appName{
+    font-size: 20px;
+    word-spacing: 10px;
     margin: auto;
+    text-align: center;
   }
-  .outside ul .main {
-    font-size: 28px;
+  .bottomBar{
+    display: flex;
+    height: 47px;
+    position: fixed;
+    bottom: 0px;
+    background-color: #071231;
+    width: 100%;
   }
-  .outside ul li {
-    padding-left: 6px;
+  .bottomBar .icons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .bottomBar .icons .icon{
+    margin: 10px;
   }
 }

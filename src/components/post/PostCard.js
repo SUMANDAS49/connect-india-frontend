@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImageHelper from "./Helpers/ImageHelper";
 import "./postCard.css"
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
@@ -6,58 +6,58 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {isAuthenticated} from "../auth/Helper"
+import { isAuthenticated } from "../auth/Helper"
 import { deletePost } from "./Helpers/PostDeleteHelper";
 import { PostReloadContext } from "../Contexts/PostReloaderContext";
 import { PostLoaderContext } from "../Contexts/PostLoaderContext";
 
-function PostCard({ id, content, name, likes,email,idr,authorId }) {
-  const [displayMore,setDisplayMore]=useState(false)
+function PostCard({ id, content, name, likes, email, idr, authorId }) {
+  const [displayMore, setDisplayMore] = useState(false)
 
-const [postReload,setPostReload]=useContext(PostReloadContext)
-const [postLoad,setPostLoad]=useContext(PostLoaderContext)
-  const deletePostHandler=()=>{
+  const [postReload, setPostReload] = useContext(PostReloadContext)
+  const [postLoad, setPostLoad] = useContext(PostLoaderContext)
+  const deletePostHandler = () => {
     setPostLoad(true)
-    const userId=isAuthenticated().user._id
-    const postId=idr;
-    const token=isAuthenticated().token
-    deletePost(postId,userId,token).then((r)=>{
+    const userId = isAuthenticated().user._id
+    const postId = idr;
+    const token = isAuthenticated().token
+    deletePost(postId, userId, token).then((r) => {
       setPostReload(!postReload)
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err)
     })
   }
-  const showMore=()=>{
+  const showMore = () => {
     setDisplayMore(!displayMore)
   }
-  const deleteForm=()=>{
+  const deleteForm = () => {
     return <div className="show-more-form">
-      {isAuthenticated().user._id===authorId && <div className="delete" onClick={()=>deletePostHandler()}>delete</div>}
+      {isAuthenticated().user._id === authorId && <div className="delete" onClick={() => deletePostHandler()}>delete</div>}
       <div className="about">about</div>
     </div>
   }
   return (
     <div className="post-card">
       {displayMore && deleteForm()}
-      <div className="post-card-author"> 
-        <div style={{display:"flex",flexDirection:"raw"}}>
-        <div className="name">{name}</div>
-        <div className="more" onClick={()=>{showMore()}}><MoreVertIcon className="main" /> </div>
+      <div className="post-card-author">
+        <div style={{ display: "flex", flexDirection: "raw" }}>
+          <div className="name">{name}</div>
+          <div className="more" onClick={() => { showMore() }}><MoreVertIcon className="main" /> </div>
         </div>
         <div className="email">{email}</div>
       </div>
-      { <div className="post-card-image">
+      {<div className="post-card-image">
         <ImageHelper product={id} />
       </div>}
       <div className="content">
         {content}
       </div>
-      <div className="like-box">
+      {/* <div className="like-box">
         <div className="like"><ThumbUpAltIcon className="main" /></div>
         <div className="dislike"><ThumbDownIcon className="main" /></div>
         <div className="love"><FavoriteIcon className="main" /></div>
         <div className="haha"><EmojiEmotionsIcon className="main" /></div>
-      </div>
+      </div> */}
     </div>
   );
 }

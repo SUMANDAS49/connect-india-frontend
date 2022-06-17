@@ -10,10 +10,11 @@ function Base({ children }) {
         <PostLoaderContextProvider>
             <PostReloadContextProvider>
                 <div>
-                    <Nav />
+                    <Nav>
 
 
-                    {children}
+                        {children}
+                    </Nav>
 
                 </div>
             </PostReloadContextProvider>

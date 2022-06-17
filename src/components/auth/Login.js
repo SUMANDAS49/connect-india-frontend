@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link ,Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Base from "../../Base";
 import "./auth.css";
-import { signUp,LogIn } from "./Helper";
+import { signUp, LogIn } from "./Helper";
 function Login() {
-  
+
   const [details, setDetails] = useState({
     email: "",
     password: "",
-   
+
   });
   const [success, setSuccess] = useState(false);
   const [err, setErr] = useState("");
-  const { email, password} = details;
+  const { email, password } = details;
   const [clicked, setClicked] = useState(false);
-  const [redirect,setRedirect]=useState(false)
+  const [redirect, setRedirect] = useState(false)
   const done = () => {
     LogIn(email, password)
       .then((res) => {
@@ -24,9 +24,12 @@ function Login() {
             setSuccess(false);
           } else {
             console.log(res);
-            localStorage.setItem("auth",JSON.stringify(res))
+            localStorage.setItem("auth", JSON.stringify(res))
             setSuccess(true);
-            setRedirect(true)
+            setTimeout(() => {
+              setRedirect(true)
+            }, 1000)
+
           }
         }
       })
@@ -37,58 +40,58 @@ function Login() {
     setClicked(true);
   };
 
- if(redirect===true)
- {
-   return <Redirect to="/" />
- }
+  if (redirect === true) {
+    return <Redirect to="/" />
+  }
   return (
     <Base>
-    <div className="sign-up-body">
-      <div className="title">Login</div>
-      {err.length !== 0 && success === false
-        ? clicked && <div className="sign-up-error">{err}</div>
-        : clicked && (
+      <div className="sign-up-body">
+        <div className="title">Login</div>
+        {err.length !== 0 && success === false
+          ? clicked && <div className="sign-up-error">{err}</div>
+          : clicked && (
             <div className="sign-up-success">
               <h4>
                 successfully logged in
-                
+
               </h4>
             </div>
           )}
-      <div className="sign-up-container">
-        
-        <input
-          value={email}
-          type="text"
-          placeholder="Email"
-          className="ip1"
-          onChange={(e) => {
-            setDetails({ ...details, email: e.target.value });
-          }}
-        />
-        <input
-          value={password}
-          onChange={(e) => {
-            setDetails({ ...details, password: e.target.value });
-          }}
-          type="password"
-          placeholder="Password"
-          className="ip2"
-        />
+        <div className="sign-up-container">
 
-        <button
-          onClick={() => {
-            done()
-            
-          }}
-          className="ip3"
-        >
-          Log in
-        </button>
+          <input
+            value={email}
+            type="text"
+            placeholder="Email"
+            className="ip1"
+            onChange={(e) => {
+              setDetails({ ...details, email: e.target.value });
+            }}
+          />
+          <input
+            value={password}
+            onChange={(e) => {
+              setDetails({ ...details, password: e.target.value });
+            }}
+            type="password"
+            placeholder="Password"
+            className="ip2"
+          />
+
+          <button
+            onClick={() => {
+              done()
+
+            }}
+            className="ip3"
+          >
+            Log in
+          </button>
+          <div>Do not have account? click <Link to={"/auth/signup"}>here</Link> to signup</div>
+        </div>
       </div>
-    </div>
     </Base>
-    
+
   );
 }
 
